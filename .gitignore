@@ -1,0 +1,3 @@
+# Compiled GSettings schemas: a build artifact, produced next to the sources by
+# glib-compile-schemas at install time
+gschemas.compiled
