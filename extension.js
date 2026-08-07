@@ -54,7 +54,12 @@ export default class SwapMonitorWindowsExtension extends Extension {
             return [0, 1];
 
         const primary = display.get_primary_monitor();
-        const focused = display.focus_window?.get_monitor() ?? display.get_current_monitor();
+
+        // get_monitor() answers -1 for a window mutter has not placed on a
+        // screen yet. Handing that index back to move_to_monitor() would take
+        // the compositor down with us, so fall back to the pointer's screen.
+        const focusedMonitor = display.focus_window?.get_monitor() ?? -1;
+        const focused = focusedMonitor >= 0 ? focusedMonitor : display.get_current_monitor();
         const other = focused === primary ? (primary + 1) % count : focused;
 
         return [primary, other];
