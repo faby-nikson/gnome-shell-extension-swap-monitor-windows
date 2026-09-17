@@ -1,6 +1,6 @@
 # Swap Monitor Windows
 
-Extension GNOME Shell : **`Super + X`** échange le contenu de deux écrans. Toutes les fenêtres de
+Extension GNOME Shell : **`Alt + X`** échange le contenu de deux écrans. Toutes les fenêtres de
 l'écran 1 partent sur l'écran 2, et inversement.
 
 Le cas d'usage : tu partages un écran en visio et tu veux basculer ce que tu montres sans traîner
@@ -47,6 +47,10 @@ S=~/.local/share/gnome-shell/extensions/swap-monitor-windows@faby-nikson.github.
 GSETTINGS_SCHEMA_DIR="$S/schemas" gsettings set \
   org.gnome.shell.extensions.swap-monitor-windows swap-monitors "['<Super><Alt>x']"
 
+# Revenir au raccourci historique (Super+X)
+GSETTINGS_SCHEMA_DIR="$S/schemas" gsettings set \
+  org.gnome.shell.extensions.swap-monitor-windows swap-monitors "['<Super>x']"
+
 # Permuter tous les workspaces d'un coup, au lieu du seul workspace actif
 GSETTINGS_SCHEMA_DIR="$S/schemas" gsettings set \
   org.gnome.shell.extensions.swap-monitor-windows all-workspaces true
@@ -54,7 +58,7 @@ GSETTINGS_SCHEMA_DIR="$S/schemas" gsettings set \
 
 | Clé | Défaut | Rôle |
 |---|---|---|
-| `swap-monitors` | `['<Super>x']` | Le raccourci |
+| `swap-monitors` | `['<Alt>x']` | Le raccourci |
 | `all-workspaces` | `false` | `false` = workspace actif seulement |
 
 ## Comment ça marche
@@ -92,5 +96,5 @@ est reçu mais ne trouve rien à bouger.
 
 Quand une fenêtre passe de l'écran secondaire vers l'écran primaire, mutter la rattache au workspace
 actif (conséquence de `workspaces-only-on-primary`) ; dans l'autre sens elle devient « sur tous les
-workspaces ». C'est cohérent, mais si tu réappuies sur `Super + X` après avoir changé de workspace,
+workspaces ». C'est cohérent, mais si tu réappuies sur `Alt + X` après avoir changé de workspace,
 tu ne retrouveras pas exactement la répartition de départ.

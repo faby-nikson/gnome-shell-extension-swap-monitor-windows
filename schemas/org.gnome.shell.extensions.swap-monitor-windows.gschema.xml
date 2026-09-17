@@ -3,7 +3,7 @@
   <schema id="org.gnome.shell.extensions.swap-monitor-windows"
           path="/org/gnome/shell/extensions/swap-monitor-windows/">
     <key name="swap-monitors" type="as">
-      <default><![CDATA[['<Super>x']]]></default>
+      <default><![CDATA[['<Alt>x']]]></default>
       <summary>Swap the windows of two screens</summary>
       <description>
         Move every window on the first screen to the second one and vice versa.
